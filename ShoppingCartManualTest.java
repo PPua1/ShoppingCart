@@ -90,6 +90,20 @@ public class ShoppingCartManualTest {
             failedCount++;
         }
 
+        // Test 7:  ซื้อของที่เข้าร่วมโปรโมชั่น แต่ไม่ถึงเงื่อนไขที่กำหนด
+        ArrayList<CartItem> LessCart = new ArrayList<>();
+        LessCart.add(new CartItem("BOKO", "Sandwich", 15, 1)); // 15
+        LessCart.add(new CartItem("BULK","Candy", 10, 5)); // 50
+        double total7 = ShoppingCartCalculator.calculateTotalPrice(LessCart);
+        if (total7 == 65.0) {
+            System.out.println("PASSED: LessCart total is correct (65.0)");
+            passedCount++;
+        }else {
+            System.out.println("FAILED: LessCart total expected 84.0 but got " + total7);
+            failedCount++;
+        }
+
+
 
         // --- Test Summary ---
         System.out.println("\n--------------------");
